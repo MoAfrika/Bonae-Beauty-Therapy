@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonae Beauty Spa | Luxury Spa in Boksburg</title>
+  <meta name="description" content="BONAE BEAUTY SPA - Luxury Beauty Spa in Boksburg, South Africa. Advanced skincare, massage therapy, body treatments and wellness packages.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  
+  <style>
+    /* Custom Styling & Animations */
+    html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Raleway', sans-serif; background: #ffffff; max-width: 100%; overflow-x: hidden; }
+    img { display: block; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(13,27,94,0.75), rgba(13,27,94,0.5), rgba(17,17,17,0.85)); }
+    .service-card { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(13, 27, 94, 0.14); }
+    .gold-gradient { background: linear-gradient(135deg, #D4AF37, #F5D76E, #D4AF37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.2); }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    
+    /* New Hover & UI Enhancements */
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #D4AF37; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    
+    #mobile-menu { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-in-out; }
+    #mobile-menu.open { max-height: 400px; opacity: 1; padding-top: 1rem; padding-bottom: 1rem; border-top-width: 1px; }
+    
+    .testimonial-anim { animation: smoothFade 0.6s ease-in-out forwards; }
+    @keyframes smoothFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    @keyframes float { 
+        0%,100% { transform: translateY(0); } 
+        50% { transform: translateY(-6px); } 
+    }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+
+    /* Custom Theme Colors for Tailwind */
+    .bg-brand-navy { background-color: #0D1B5E; }
+    .text-brand-navy { color: #0D1B5E; }
+    .bg-brand-gold { background-color: #D4AF37; }
+    .text-brand-gold { color: #D4AF37; }
+    .menu-fallback {
+      display: inline-block;
+      width: 24px;
+      height: 16px;
+      background:
+        linear-gradient(#0D1B5E, #0D1B5E) 0 0 / 100% 2px no-repeat,
+        linear-gradient(#0D1B5E, #0D1B5E) 0 50% / 100% 2px no-repeat,
+        linear-gradient(#0D1B5E, #0D1B5E) 0 100% / 100% 2px no-repeat;
+    }
+    svg + .menu-fallback { display: none; }
+
+    @media (max-width: 639px) {
+      .hero-title {
+        max-width: 20.5rem !important;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 2rem !important;
+        line-height: 1.12 !important;
+        overflow-wrap: break-word;
+      }
+      .hero-content {
+        max-width: 22.5rem !important;
+      }
+      .hero-copy {
+        max-width: 20.5rem !important;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+</head>
+<body class="w-full overflow-x-hidden text-gray-800">
+  
+  <!-- Sticky Nav -->
+  <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center gap-4">
+      <a href="#" class="flex items-center gap-3">
+        <img src="images/Bonae Beauty Spa Logo.jpg" onerror="this.src='https://placehold.co/150x50/0D1B5E/D4AF37?text=BONAE+LOGO'" alt="Bonae Beauty Spa Logo" class="h-10 sm:h-12 w-auto" loading="lazy">
+      </a>
+      
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="nav-link relative text-sm uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors font-semibold">About</a>
+        <a href="#services" class="nav-link relative text-sm uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors font-semibold">Services</a>
+        <a href="#gallery" class="nav-link relative text-sm uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors font-semibold">Gallery</a>
+        <a href="#contact" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-lg hover:-translate-y-1">Book Now</a>
+      </div>
+      
+      <button id="mobile-menu-btn" class="ml-auto md:hidden p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Open menu">
+        <i data-lucide="menu" style="width:24px;height:24px;color:#0D1B5E;"></i>
+        <span class="menu-fallback" aria-hidden="true"></span>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white px-6 space-y-4 shadow-inner">
+      <a href="#about" class="block text-sm uppercase tracking-wider text-[#0D1B5E] hover:text-[#D4AF37] transition">About</a>
+      <a href="#services" class="block text-sm uppercase tracking-wider text-[#0D1B5E] hover:text-[#D4AF37] transition">Services</a>
+      <a href="#gallery" class="block text-sm uppercase tracking-wider text-[#0D1B5E] hover:text-[#D4AF37] transition">Gallery</a>
+      <a href="#contact" class="block text-sm uppercase tracking-wider text-[#D4AF37] font-semibold hover:text-[#0D1B5E] transition">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="relative w-full min-h-[100svh] flex flex-col justify-center">
+    <img src="images/Beauty Spa Hero image.jpg" onerror="this.src='https://placehold.co/1920x1080/0D1B5E/FFFFFF?text=Luxury+Spa+Background'" alt="Spa Background" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+    <div class="hero-overlay absolute inset-0 flex items-center justify-center text-center px-4 sm:px-6">
+      <div class="hero-content max-w-3xl mt-16 text-white fade-in visible w-full mx-auto">
+        <p class="text-xs sm:text-sm md:text-base uppercase tracking-[0.3em] mb-4 text-[#D4AF37] font-semibold">Welcome to Bonae</p>
+        <h1 class="hero-title font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 leading-tight text-white drop-shadow-lg">Experience Ultimate Relaxation & Luxury</h1>
+        <p class="hero-copy text-sm sm:text-base md:text-lg mb-4 max-w-xl mx-auto text-gray-200">Rejuvenate your mind, body, and soul at Boksburg's premier destination for advanced skincare and wellness.</p>
+        <p class="text-xs sm:text-sm md:text-base mb-10 italic text-gray-300">Where beauty meets tranquility.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
+          <a href="https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa%2C%20I'd%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="w-full max-w-xs sm:w-auto bg-[#D4AF37] text-white px-8 py-3 sm:py-4 rounded-full text-sm uppercase tracking-widest font-semibold transition-all duration-300 hover:bg-white hover:text-[#0D1B5E] hover:shadow-xl hover:-translate-y-1">Book Appointment</a>
+          <a href="#services" class="w-full max-w-xs sm:w-auto px-8 py-3 sm:py-4 rounded-full text-sm uppercase tracking-widest font-semibold transition-all duration-300 text-white border border-white hover:bg-white/10 hover:shadow-xl hover:-translate-y-1">View Services</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-28 px-6 bg-gray-50 overflow-hidden">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-in">
+          <img src="images/Our story image.jpeg" onerror="this.src='https://placehold.co/800x600/D4AF37/0D1B5E?text=Spa+Interior+Image'" alt="Inside Bonae Beauty Spa" class="w-full h-[360px] md:h-[440px] object-cover rounded-2xl shadow-xl" loading="lazy">
+        </div>
+        <div class="fade-in">
+          <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-bold">About Us</p>
+          <h2 class="font-display text-3xl md:text-4xl mb-6 text-brand-navy">Your Sanctuary of Serenity in Boksburg</h2>
+          <p class="leading-relaxed mb-5 text-gray-600">At Bonae Beauty Spa, we believe that true beauty radiates from a place of deep relaxation and inner peace. Our expert therapists are dedicated to providing you with bespoke treatments tailored to your unique needs.</p>
+          <p class="leading-relaxed mb-8 text-gray-600">From advanced skincare routines to deeply therapeutic massages, we use only the finest products to ensure you leave feeling revitalized, refreshed, and entirely renewed.</p>
+          <a href="#services" class="inline-block px-8 py-3 rounded-full text-sm uppercase tracking-widest font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-lg hover:-translate-y-1">Explore Treatments</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-28 px-6 bg-white">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-bold">Our Treatments</p>
+        <h2 class="font-display text-3xl md:text-4xl mb-4 text-brand-navy">Luxury Spa Services</h2>
+        <p class="mb-16 max-w-lg mx-auto text-gray-600">Discover our carefully curated menu of indulgent treatments designed to pamper you from head to toe.</p>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Card 1 -->
+          <div class="service-card group rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 fade-in flex flex-col h-full">
+            <div class="overflow-hidden w-full h-52">
+              <img src="images/advanced skin care image.jpeg" onerror="this.src='https://placehold.co/600x400/0D1B5E/FFFFFF?text=Advanced+Skincare'" alt="Advanced Skincare" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+            </div>
+            <div class="p-6 text-left flex flex-col flex-grow">
+              <h3 class="font-display text-xl mb-2 text-brand-navy font-semibold">Advanced Skincare</h3>
+              <p class="text-sm leading-relaxed mb-3 text-gray-600 flex-grow">Rejuvenating facials and peels customized to your skin type for a glowing, youthful complexion.</p>
+              <p class="text-sm font-bold mb-4 text-brand-gold">From R450</p>
+              <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20book%20Advanced%20Skincare" target="_blank" rel="noopener noreferrer" class="self-start px-6 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card group rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 fade-in flex flex-col h-full">
+            <div class="overflow-hidden w-full h-52">
+              <img src="images/body treatment images.jpeg" onerror="this.src='https://placehold.co/600x400/D4AF37/0D1B5E?text=Body+Treatments'" alt="Body Treatments" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+            </div>
+            <div class="p-6 text-left flex flex-col flex-grow">
+              <h3 class="font-display text-xl mb-2 text-brand-navy font-semibold">Body Treatments</h3>
+              <p class="text-sm leading-relaxed mb-3 text-gray-600 flex-grow">Exfoliating scrubs and nourishing wraps that leave your skin feeling silky smooth and deeply hydrated.</p>
+              <p class="text-sm font-bold mb-4 text-brand-gold">From R600</p>
+              <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20book%20Body%20Treatments" target="_blank" rel="noopener noreferrer" class="self-start px-6 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card group rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 fade-in flex flex-col h-full">
+            <div class="overflow-hidden w-full h-52">
+              <img src="images/precision image.jpeg" onerror="this.src='https://placehold.co/600x400/0D1B5E/FFFFFF?text=Precision+Beauty'" alt="Precision Beauty" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+            </div>
+            <div class="p-6 text-left flex flex-col flex-grow">
+              <h3 class="font-display text-xl mb-2 text-brand-navy font-semibold">Precision Beauty</h3>
+              <p class="text-sm leading-relaxed mb-3 text-gray-600 flex-grow">Expert waxing, tinting, and threading services for flawless, long-lasting results.</p>
+              <p class="text-sm font-bold mb-4 text-brand-gold">From R150</p>
+              <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20book%20Precision%20Beauty" target="_blank" rel="noopener noreferrer" class="self-start px-6 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card group rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 fade-in flex flex-col h-full">
+            <div class="overflow-hidden w-full h-52">
+              <img src="images/massage therapy.jpeg" onerror="this.src='https://placehold.co/600x400/D4AF37/0D1B5E?text=Massage+Therapy'" alt="Massage Therapy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+            </div>
+            <div class="p-6 text-left flex flex-col flex-grow">
+              <h3 class="font-display text-xl mb-2 text-brand-navy font-semibold">Massage Therapy</h3>
+              <p class="text-sm leading-relaxed mb-3 text-gray-600 flex-grow">Melt away tension with our Swedish, deep tissue, or hot stone massages tailored to your pressure preference.</p>
+              <p class="text-sm font-bold mb-4 text-brand-gold">From R550</p>
+              <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20book%20Massage%20Therapy" target="_blank" rel="noopener noreferrer" class="self-start px-6 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="service-card group rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 fade-in flex flex-col h-full">
+            <div class="overflow-hidden w-full h-52">
+              <img src="images/wellness package image.jpeg" onerror="this.src='https://placehold.co/600x400/0D1B5E/FFFFFF?text=Wellness+Packages'" alt="Wellness Packages" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+            </div>
+            <div class="p-6 text-left flex flex-col flex-grow">
+              <h3 class="font-display text-xl mb-2 text-brand-navy font-semibold">Wellness Packages</h3>
+              <p class="text-sm leading-relaxed mb-3 text-gray-600 flex-grow">Half and full-day pamper packages combining our most popular treatments for ultimate relaxation.</p>
+              <p class="text-sm font-bold mb-4 text-brand-gold">From R1200</p>
+              <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20book%20Wellness%20Packages" target="_blank" rel="noopener noreferrer" class="self-start px-6 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="service-card group rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 fade-in flex flex-col h-full">
+            <div class="overflow-hidden w-full h-52">
+              <img src="images/foot spa image.webp" onerror="this.src='https://placehold.co/600x400/D4AF37/0D1B5E?text=Foot+Spa'" alt="Foot Spa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+            </div>
+            <div class="p-6 text-left flex flex-col flex-grow">
+              <h3 class="font-display text-xl mb-2 text-brand-navy font-semibold">Foot Spa & Nails</h3>
+              <p class="text-sm leading-relaxed mb-3 text-gray-600 flex-grow">Luxurious manicures and pedicures that leave your hands and feet looking pristine.</p>
+              <p class="text-sm font-bold mb-4 text-brand-gold">From R250</p>
+              <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20book%20Foot%20Spa" target="_blank" rel="noopener noreferrer" class="self-start px-6 py-2 rounded-full text-xs uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Book Now</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 md:py-28 px-6 bg-brand-navy text-white">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl mb-16">Why Choose Bonae Beauty</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="text-center p-6 fade-in">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
+              <i data-lucide="sparkles" style="width:24px;height:24px;color:#D4AF37;"></i>
+            </div>
+            <h3 class="font-display text-lg mb-2 font-semibold">Premium Products</h3>
+            <p class="text-sm leading-relaxed text-gray-300">We exclusively use high-end, clinically proven skincare products.</p>
+          </div>
+          <div class="text-center p-6 fade-in">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
+              <i data-lucide="award" style="width:24px;height:24px;color:#D4AF37;"></i>
+            </div>
+            <h3 class="font-display text-lg mb-2 font-semibold">Expert Therapists</h3>
+            <p class="text-sm leading-relaxed text-gray-300">Highly trained professionals dedicated to your wellness journey.</p>
+          </div>
+          <div class="text-center p-6 fade-in">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
+              <i data-lucide="heart" style="width:24px;height:24px;color:#D4AF37;"></i>
+            </div>
+            <h3 class="font-display text-lg mb-2 font-semibold">Tranquil Environment</h3>
+            <p class="text-sm leading-relaxed text-gray-300">A meticulously designed sanctuary to help you unplug and unwind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Offer -->
+    <section class="py-20 px-6 relative overflow-hidden bg-gray-50">
+      <div class="max-w-4xl mx-auto text-center relative z-10 fade-in group">
+        <div class="overflow-hidden rounded-3xl mb-10 shadow-2xl">
+            <img src="images/Beauty Spa Mother's Day Special.jpg" onerror="this.src='https://placehold.co/1200x400/D4AF37/0D1B5E?text=Seasonal+Special+Offer'" alt="Special Offer" class="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+        </div>
+        <p class="text-sm uppercase tracking-[0.3em] mb-3 text-brand-gold font-bold">Limited Time Offer</p>
+        <h2 class="font-display text-3xl md:text-5xl mb-4 text-brand-navy">Signature Glow Package</h2>
+        <p class="font-display text-4xl md:text-5xl font-bold mb-4 text-brand-navy">Save 20%</p>
+        <p class="text-gray-600 mb-8 max-w-xl mx-auto">Includes a 60-minute Full Body Massage, Hydrating Facial, and Express Pedicure. Treat yourself or a loved one today.</p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+          <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20book%20the%20Signature%20Glow%20Package" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 rounded-full text-sm uppercase tracking-widest font-bold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-xl hover:-translate-y-1">Claim Offer</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vouchers -->
+    <section id="vouchers" class="py-20 md:py-28 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-bold">Gift The Experience</p>
+          <h2 class="font-display text-3xl md:text-4xl mb-6 text-brand-navy">Digital Gift Vouchers</h2>
+          <p class="mb-6 max-w-2xl mx-auto text-lg text-gray-600">Give the perfect gift of relaxation. Our digital vouchers can be used for any treatment or product at Bonae Beauty Spa.</p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+          <!-- Voucher 1 -->
+          <div class="rounded-2xl p-8 text-center bg-gray-50 border border-gray-100 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <p class="font-display text-4xl font-bold mb-2 text-brand-navy">R500</p>
+            <p class="text-sm uppercase tracking-wider mb-4 text-brand-gold font-bold">Standard Voucher</p>
+            <p class="text-sm mb-6 text-gray-500">Perfect for a precision beauty treatment or express manicure.</p>
+            <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20purchase%20an%20R500%20voucher" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Buy Now</a>
+          </div>
+          <!-- Voucher 2 -->
+          <div class="rounded-2xl p-8 text-center bg-brand-navy text-white shadow-xl transform md:scale-105 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
+            <p class="font-display text-4xl font-bold mb-2 text-white">R1000</p>
+            <p class="text-sm uppercase tracking-wider mb-4 text-[#D4AF37] font-bold">Premium Voucher</p>
+            <p class="text-sm mb-6 text-gray-300">Ideal for a luxurious 60-minute massage or advanced facial.</p>
+            <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20purchase%20an%20R1000%20voucher" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-[#D4AF37] text-white hover:bg-white hover:text-brand-navy hover:shadow-lg hover:-translate-y-0.5">Buy Now</a>
+          </div>
+          <!-- Voucher 3 -->
+          <div class="rounded-2xl p-8 text-center bg-gray-50 border border-gray-100 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <p class="font-display text-4xl font-bold mb-2 text-brand-navy">R2000</p>
+            <p class="text-sm uppercase tracking-wider mb-4 text-brand-gold font-bold">Ultimate Voucher</p>
+            <p class="text-sm mb-6 text-gray-500">The ultimate treat for a full spa day experience package.</p>
+            <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20purchase%20an%20R2000%20voucher" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-20 md:py-28 px-6 bg-gray-50">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl mb-16 text-brand-navy">Our Sanctuary</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 fade-in">
+          <div class="group overflow-hidden rounded-xl cursor-pointer bg-brand-navy">
+            <img src="images/gallery image1.jpeg" onerror="this.src='https://placehold.co/400x400/0D1B5E/FFFFFF?text=Gallery+1'" alt="Spa Room" class="w-full h-44 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:opacity-90" loading="lazy">
+          </div>
+          <div class="group overflow-hidden rounded-xl cursor-pointer bg-brand-navy">
+            <img src="images/gallery image 2.jpeg" onerror="this.src='https://placehold.co/400x400/D4AF37/0D1B5E?text=Gallery+2'" alt="Massage Products" class="w-full h-44 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:opacity-90" loading="lazy">
+          </div>
+          <div class="group overflow-hidden rounded-xl cursor-pointer bg-brand-navy">
+            <img src="images/gallery image 3.jpeg" onerror="this.src='https://placehold.co/400x400/0D1B5E/FFFFFF?text=Gallery+3'" alt="Nail Station" class="w-full h-44 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:opacity-90" loading="lazy">
+          </div>
+          <div class="group overflow-hidden rounded-xl cursor-pointer bg-brand-navy">
+            <img src="images/gallery image 4.jpeg" onerror="this.src='https://placehold.co/400x400/D4AF37/0D1B5E?text=Gallery+4'" alt="Relaxation Area" class="w-full h-44 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:opacity-90" loading="lazy">
+          </div>
+          <div class="group overflow-hidden rounded-xl cursor-pointer bg-brand-navy">
+            <img src="images/gallery image 5.jpeg" onerror="this.src='https://placehold.co/400x400/0D1B5E/FFFFFF?text=Gallery+5'" alt="Skincare Products" class="w-full h-44 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:opacity-90" loading="lazy">
+          </div>
+          <div class="group overflow-hidden rounded-xl cursor-pointer bg-brand-navy">
+            <img src="images/gallery image 6.jpeg" onerror="this.src='https://placehold.co/400x400/D4AF37/0D1B5E?text=Gallery+6'" alt="Happy Client" class="w-full h-44 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110 group-hover:opacity-90" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 md:py-28 px-6 bg-white">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl mb-16 text-brand-navy">What Our Clients Say</h2>
+        
+        <div id="testimonial-container" class="relative bg-gray-50 p-10 rounded-3xl shadow-sm border border-gray-100">
+          
+          <div class="testimonial-slide" data-index="0">
+            <div class="max-w-2xl mx-auto">
+              <img src="images/client testimony image.jpeg" onerror="this.src='https://placehold.co/100x100/D4AF37/FFFFFF?text=S'" alt="Sarah M." class="w-16 h-16 rounded-full mx-auto mb-4 object-cover border-2 border-brand-gold" loading="eager">
+              <p class="text-lg italic leading-relaxed mb-4 text-gray-700">"Absolutely incredible experience. The hot stone massage relieved all my back tension, and the staff were incredibly welcoming and professional."</p>
+              <p class="font-semibold text-brand-navy">- Sarah M.</p>
+            </div>
+          </div>
+          
+          <div class="testimonial-slide hidden" data-index="1">
+            <div class="max-w-2xl mx-auto">
+              <img src="images/client testimony image 2.jpeg" onerror="this.src='https://placehold.co/100x100/D4AF37/FFFFFF?text=L'" alt="Lerato K." class="w-16 h-16 rounded-full mx-auto mb-4 object-cover border-2 border-brand-gold" loading="eager">
+              <p class="text-lg italic leading-relaxed mb-4 text-gray-700">"The best facial I have ever had! My skin is glowing, and the therapist gave me great advice on my daily skincare routine."</p>
+              <p class="font-semibold text-brand-navy">- Lerato K.</p>
+            </div>
+          </div>
+          
+          <div class="testimonial-slide hidden" data-index="2">
+            <div class="max-w-2xl mx-auto">
+              <img src="images/client testimony image 3.jpeg" onerror="this.src='https://placehold.co/100x100/D4AF37/FFFFFF?text=J'" alt="Jessica T." class="w-16 h-16 rounded-full mx-auto mb-4 object-cover border-2 border-brand-gold" loading="eager">
+              <p class="text-lg italic leading-relaxed mb-4 text-gray-700">"Bought a half-day package for my mom's birthday. We were treated like royalty from the moment we walked in. Highly recommend!"</p>
+              <p class="font-semibold text-brand-navy">- Jessica T.</p>
+            </div>
+          </div>
+          
+          <div class="flex justify-center gap-2 mt-8">
+            <button class="dot w-3 h-3 rounded-full bg-[#D4AF37]" data-dot="0" aria-label="Testimonial 1"></button> 
+            <button class="dot w-3 h-3 rounded-full bg-[#D4AF37]/30" data-dot="1" aria-label="Testimonial 2"></button> 
+            <button class="dot w-3 h-3 rounded-full bg-[#D4AF37]/30" data-dot="2" aria-label="Testimonial 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 md:py-28 px-6 bg-brand-navy text-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12 fade-in">
+          <h2 class="font-display text-3xl md:text-4xl mb-4">Visit Our Spa</h2>
+          <p class="max-w-lg mx-auto text-gray-300">Ready for your pampering session? Contact us to secure your booking.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <div class="fade-in">
+            <div class="space-y-6 mb-8">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
+                  <i data-lucide="map-pin" style="width:18px;height:18px;color:#D4AF37;"></i>
+                </div>
+                <a href="https://www.google.com/maps/search/9+Robben+Road,+Groeneweide,+Boksburg" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-brand-gold transition">9 Robben Road, Groeneweide, Boksburg</a>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
+                  <i data-lucide="phone" style="width:18px;height:18px;color:#D4AF37;"></i>
+                </div>
+                <a href="tel:+27727191122" class="text-sm hover:text-brand-gold transition">+27 72 719 1122</a>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-[#D4AF37]/20 flex items-center justify-center">
+                  <i data-lucide="clock" style="width:18px;height:18px;color:#D4AF37;"></i>
+                </div>
+                <p class="text-sm text-gray-300">Open Monday to Saturday by appointment</p>
+              </div>
+            </div>
+            <div class="flex gap-3 flex-col sm:flex-row">
+              <a href="https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa%2C%20I'd%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 bg-[#25D366] text-white hover:bg-white hover:text-[#25D366] hover:shadow-lg hover:-translate-y-1"> 
+                <i data-lucide="message-circle" style="width:16px;height:16px;"></i> <span>WhatsApp</span> 
+              </a> 
+              <a href="tel:+27727191122" class="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 border border-white text-white hover:bg-white hover:text-brand-navy hover:shadow-lg hover:-translate-y-1"> 
+                <i data-lucide="phone" style="width:16px;height:16px;"></i> <span>Call Us</span> 
+              </a>
+            </div>
+          </div>
+          
+          <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl text-gray-800 fade-in">
+            <h3 class="font-display text-2xl mb-6 text-brand-navy font-semibold">Send a Request</h3>
+            <form id="contact-form" class="space-y-4">
+              <div>
+                <label for="cf-name" class="sr-only">Name</label> 
+                <input id="cf-name" type="text" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition text-sm bg-gray-50">
+              </div>
+              <div>
+                <label for="cf-phone" class="sr-only">Phone</label> 
+                <input id="cf-phone" type="tel" placeholder="Your Phone Number" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition text-sm bg-gray-50">
+              </div>
+              <div>
+                <label for="cf-msg" class="sr-only">Message</label> 
+                <textarea id="cf-msg" rows="4" placeholder="How can we help you?" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition text-sm resize-none bg-gray-50"></textarea>
+              </div>
+              <button type="submit" class="w-full px-6 py-3 rounded-xl text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-lg hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                <span id="btn-text">Send Message</span>
+              </button>
+            </form>
+            <div id="form-success" class="hidden mt-4 text-center p-4 bg-green-50 rounded-xl border border-green-200">
+                <p class="text-sm text-green-700 font-medium flex items-center justify-center gap-2">
+                    <i data-lucide="check-circle" style="width:18px;height:18px;"></i> Thank you! We'll be in touch shortly.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 bg-[#091342] text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+          <img src="images/Bonae Beauty Spa Logo.jpg" onerror="this.src='https://placehold.co/150x50/091342/D4AF37?text=BONAE+LOGO'" alt="Bonae Beauty Spa Logo" class="h-10 w-auto mx-auto md:mx-0 mb-3" loading="lazy">
+          <p class="text-sm italic max-w-xs text-gray-400">Your ultimate destination for relaxation and beauty in Boksburg.</p>
+        </div>
+        <div class="flex gap-6">
+          <a href="https://web.facebook.com/BonaeBeautySpa" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:opacity-70 transition"><i data-lucide="facebook" style="width:24px;height:24px;color:#D4AF37;"></i></a> 
+          <span aria-label="Instagram" class="opacity-40"><i data-lucide="instagram" style="width:24px;height:24px;color:#D4AF37;"></i></span> 
+          <span aria-label="TikTok" class="opacity-40"><i data-lucide="video" style="width:24px;height:24px;color:#D4AF37;"></i></span>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-8 pt-8 text-center flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+        <p>&copy; 2026 Bonae Beauty Spa. All rights reserved.</p>
+        <p class="mt-2 md:mt-0">
+          Designed & Built by
+          <a href="https://web.facebook.com/profile.php?id=61573253288425" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:text-white transition">Skotch Metabytes</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp --> 
+  <a href="https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa%2C%20I'd%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg float-anim hover:bg-[#1ebe57] hover:scale-110 transition-all duration-300" aria-label="Chat on WhatsApp"> 
+    <i data-lucide="message-circle" style="width:28px;height:28px;color:#ffffff;"></i> 
+  </a>
+  
+  <script>
+    // Initialize icons when the CDN is available.
+    function refreshIcons() {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+    refreshIcons();
+
+    // Mobile Menu Toggle Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    
+    // Close Mobile Menu on Click
+    document.querySelectorAll('#mobile-menu a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // Testimonial Carousel Logic with Smooth Fade
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    function showSlide(i) {
+      slides.forEach(s => {
+        s.classList.add('hidden');
+        s.classList.remove('testimonial-anim');
+      });
+      dots.forEach(d => { 
+        d.style.opacity = '0.3'; 
+        d.classList.remove('bg-[#D4AF37]', 'scale-125');
+        d.classList.add('bg-[#D4AF37]/30');
+      });
+      
+      slides[i].classList.remove('hidden');
+      // Force reflow to restart animation smoothly
+      void slides[i].offsetWidth;
+      slides[i].classList.add('testimonial-anim');
+      
+      dots[i].style.opacity = '1';
+      dots[i].classList.remove('bg-[#D4AF37]/30');
+      dots[i].classList.add('bg-[#D4AF37]', 'scale-125', 'transition-transform');
+      currentSlide = i;
+    }
+    
+    dots.forEach(d => d.addEventListener('click', () => showSlide(+d.dataset.dot)));
+    
+    // Auto cycle testimonials
+    setInterval(() => {
+        if(slides.length > 0) {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+    }, 6000);
+
+    // Contact Form Submission (Mock with UI Feedback)
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Loading State
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.innerHTML = '<i data-lucide="loader-2" class="animate-spin" style="width:18px;height:18px;"></i> Sending...';
+      refreshIcons();
+
+      // Simulate network request
+      setTimeout(() => {
+          document.getElementById('contact-form').classList.add('hidden');
+          const successMsg = document.getElementById('form-success');
+          successMsg.classList.remove('hidden');
+          successMsg.classList.add('block', 'testimonial-anim'); // Reuse fade anim
+      }, 1200);
+    });
+
+    // Intersection Observer for Fade-in Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if (e.isIntersecting) {
+            e.target.classList.add('visible'); 
+            // Optional: Unobserve after fade in to prevent re-triggering
+            // observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth Scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
+        if (target) { 
+            e.preventDefault(); 
+            target.scrollIntoView({ behavior: 'smooth' }); 
+        }
+      });
+    });
+  </script>
+</body>
+</html>
