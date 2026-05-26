@@ -24,7 +24,7 @@
     .hero-overlay { background: linear-gradient(to bottom, rgba(13,27,94,0.75), rgba(13,27,94,0.5), rgba(17,17,17,0.85)); }
     .service-card { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
     .service-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(13, 27, 94, 0.14); }
-    .gold-gradient { background: linear-gradient(135deg, #D4AF37, #F5D76E, #D4AF37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .gold-gradient { background: linear-gradient(135deg, #D4AF37, #F5D76E, #D4AF37); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.2); }
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
@@ -235,6 +235,96 @@
           </div>
 
         </div>
+
+        <div class="mt-20 max-w-5xl mx-auto text-left fade-in">
+          <div class="mb-10">
+            <p class="text-sm uppercase tracking-[0.2em] mb-2 text-brand-gold font-bold">Spa Menu</p>
+            <h3 class="font-display text-3xl md:text-4xl mb-3 text-brand-navy">Bonae Spa Menu</h3>
+            <p class="text-gray-600 max-w-2xl">Choose from our signature menu of massages, facials, make-up services, and nail treatments with transparent pricing for every visit.</p>
+          </div>
+
+          <div class="grid gap-8 sm:grid-cols-2">
+            <div class="rounded-3xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
+              <h4 class="font-display text-2xl mb-5 text-brand-navy">Massages</h4>
+              <ul class="space-y-4 text-gray-700">
+                <li class="flex justify-between items-start">
+                  <span>Full body massage 60min</span>
+                  <span class="font-semibold text-brand-navy">R350</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Head, neck & shoulder</span>
+                  <span class="font-semibold text-brand-navy">R250</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Foot spa</span>
+                  <span class="font-semibold text-brand-navy">R170</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-3xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
+              <h4 class="font-display text-2xl mb-5 text-brand-navy">Facials</h4>
+              <ul class="space-y-4 text-gray-700">
+                <li class="flex justify-between items-start">
+                  <span>Dermaplanning</span>
+                  <span class="font-semibold text-brand-navy">R350</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Hydra facial</span>
+                  <span class="font-semibold text-brand-navy">R450</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>LED therapy facial</span>
+                  <span class="font-semibold text-brand-navy">R400</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-3xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
+              <h4 class="font-display text-2xl mb-5 text-brand-navy">Make-up</h4>
+              <ul class="space-y-4 text-gray-700">
+                <li class="flex justify-between items-start">
+                  <span>Ombre brows</span>
+                  <span class="font-semibold text-brand-navy">R600</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Microneedling</span>
+                  <span class="font-semibold text-brand-navy">R500</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Eyebrow shaping & tint</span>
+                  <span class="font-semibold text-brand-navy">R250</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Eyelash clusters</span>
+                  <span class="font-semibold text-brand-navy">R260</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-3xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
+              <h4 class="font-display text-2xl mb-5 text-brand-navy">Nails</h4>
+              <ul class="space-y-4 text-gray-700">
+                <li class="flex justify-between items-start">
+                  <span>Mani / Pedi</span>
+                  <span class="font-semibold text-brand-navy">R100</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Gel extension</span>
+                  <span class="font-semibold text-brand-navy">R170</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Acrylic</span>
+                  <span class="font-semibold text-brand-navy">R200</span>
+                </li>
+                <li class="flex justify-between items-start">
+                  <span>Soak off</span>
+                  <span class="font-semibold text-brand-navy">R60</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -284,6 +374,41 @@
       </div>
     </section>
 
+    <!-- Birthday Special Promo -->
+    <section id="birthday-promo" class="py-20 md:py-28 px-6 bg-[#F7F4EE]">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] items-center">
+          <div class="fade-in">
+            <p class="text-sm uppercase tracking-[0.2em] mb-4 text-brand-gold font-bold">Birthday Special</p>
+            <h2 class="font-display text-3xl md:text-4xl mb-6 text-brand-navy">Bring friends, celebrate in luxury, and enjoy a free treatment.</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl">Create unforgettable birthday memories with a premium spa celebration for you and your guests. Enjoy welcome drinks, snacks, a light lunch, and curated treatments designed for the ultimate group experience.</p>
+            <div class="grid gap-4 sm:grid-cols-2 mb-8">
+              <div class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.3em] mb-2 text-brand-gold font-semibold">Offer</p>
+                <p class="text-3xl font-display font-bold text-brand-navy">R450</p>
+                <p class="mt-2 text-sm text-gray-600">Per person when you bring 2 or more friends.</p>
+              </div>
+              <div class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.3em] mb-2 text-brand-gold font-semibold">Includes</p>
+                <ul class="space-y-2 text-gray-600">
+                  <li>Welcome drinks</li>
+                  <li>Snacks</li>
+                  <li>Light lunch</li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="birthday-special.html" class="inline-flex items-center justify-center rounded-full bg-brand-navy text-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-semibold transition hover:bg-brand-gold hover:text-brand-navy">Explore the Birthday Special</a>
+              <a href="https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa,%20I%20would%20like%20to%20book%20the%20Birthday%20Special%20experience." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-brand-navy text-brand-navy bg-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-semibold transition hover:bg-brand-navy hover:text-white">Book via WhatsApp</a>
+            </div>
+          </div>
+          <div class="fade-in rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 bg-white">
+            <img src="public/images/Bonae Beauty Ad3.png" onerror="this.src='https://placehold.co/840x840/D4AF37/0D1B5E?text=Birthday+Special'" alt="Birthday special promotion" class="w-full h-full object-cover min-h-[360px]" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Vouchers -->
     <section id="vouchers" class="py-20 md:py-28 px-6 bg-white">
       <div class="max-w-6xl mx-auto">
@@ -299,21 +424,21 @@
             <p class="font-display text-4xl font-bold mb-2 text-brand-navy">R500</p>
             <p class="text-sm uppercase tracking-wider mb-4 text-brand-gold font-bold">Standard Voucher</p>
             <p class="text-sm mb-6 text-gray-500">Perfect for a precision beauty treatment or express manicure.</p>
-            <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20purchase%20an%20R500%20voucher" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Buy Now</a>
+            <button type="button" data-voucher-amount="50000" data-voucher-label="R500" data-voucher-title="Standard Voucher" class="voucher-buy inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Buy Now</button>
           </div>
           <!-- Voucher 2 -->
           <div class="rounded-2xl p-8 text-center bg-brand-navy text-white shadow-xl transform md:scale-105 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden">
             <p class="font-display text-4xl font-bold mb-2 text-white">R1000</p>
             <p class="text-sm uppercase tracking-wider mb-4 text-[#D4AF37] font-bold">Premium Voucher</p>
             <p class="text-sm mb-6 text-gray-300">Ideal for a luxurious 60-minute massage or advanced facial.</p>
-            <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20purchase%20an%20R1000%20voucher" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-[#D4AF37] text-white hover:bg-white hover:text-brand-navy hover:shadow-lg hover:-translate-y-0.5">Buy Now</a>
+            <button type="button" data-voucher-amount="100000" data-voucher-label="R1000" data-voucher-title="Premium Voucher" class="voucher-buy inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-[#D4AF37] text-white hover:bg-white hover:text-brand-navy hover:shadow-lg hover:-translate-y-0.5">Buy Now</button>
           </div>
           <!-- Voucher 3 -->
           <div class="rounded-2xl p-8 text-center bg-gray-50 border border-gray-100 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
             <p class="font-display text-4xl font-bold mb-2 text-brand-navy">R2000</p>
             <p class="text-sm uppercase tracking-wider mb-4 text-brand-gold font-bold">Ultimate Voucher</p>
             <p class="text-sm mb-6 text-gray-500">The ultimate treat for a full spa day experience package.</p>
-            <a href="https://wa.me/27648369350?text=Hi%2C%20I'd%20like%20to%20purchase%20an%20R2000%20voucher" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Buy Now</a>
+            <button type="button" data-voucher-amount="200000" data-voucher-label="R2000" data-voucher-title="Ultimate Voucher" class="voucher-buy inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-md hover:-translate-y-0.5">Buy Now</button>
           </div>
         </div>
       </div>
@@ -450,6 +575,9 @@
                     <i data-lucide="check-circle" style="width:18px;height:18px;"></i> Thank you! We'll be in touch shortly.
                 </p>
             </div>
+            <div id="form-error" class="hidden mt-4 text-center p-4 bg-red-50 rounded-xl border border-red-200">
+                <p class="text-sm text-red-700 font-medium">Sorry, we could not send your request. Please try WhatsApp or call us directly.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -484,6 +612,50 @@
   <a href="https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa%2C%20I'd%20like%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg float-anim hover:bg-[#1ebe57] hover:scale-110 transition-all duration-300" aria-label="Chat on WhatsApp"> 
     <i data-lucide="message-circle" style="width:28px;height:28px;color:#ffffff;"></i> 
   </a>
+
+  <div id="voucher-modal" class="hidden fixed inset-0 z-[60] items-center justify-center bg-[#091342]/75 px-4 py-6">
+    <div class="w-full max-w-lg rounded-2xl bg-white p-6 sm:p-8 shadow-2xl text-gray-800 relative">
+      <button id="voucher-close" type="button" class="absolute right-4 top-4 p-2 rounded-full hover:bg-gray-100 transition" aria-label="Close voucher request">
+        <i data-lucide="x" style="width:20px;height:20px;color:#0D1B5E;"></i>
+      </button>
+      <p class="text-xs uppercase tracking-[0.2em] text-brand-gold font-bold mb-2">Digital Voucher</p>
+      <h3 id="voucher-modal-title" class="font-display text-2xl mb-2 text-brand-navy font-semibold">Request Voucher</h3>
+      <p id="voucher-modal-copy" class="text-sm text-gray-600 mb-6">Send your details and Bonae Beauty Spa will confirm payment and delivery.</p>
+      <form id="voucher-form" class="space-y-4">
+        <input id="vf-amount" type="hidden" value="">
+        <input id="vf-title" type="hidden" value="">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="vf-name" class="sr-only">Purchaser Name</label>
+            <input id="vf-name" type="text" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition text-sm bg-gray-50">
+          </div>
+          <div>
+            <label for="vf-phone" class="sr-only">Phone</label>
+            <input id="vf-phone" type="tel" placeholder="WhatsApp Number" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition text-sm bg-gray-50">
+          </div>
+        </div>
+        <div>
+          <label for="vf-recipient" class="sr-only">Recipient Name</label>
+          <input id="vf-recipient" type="text" placeholder="Recipient Name (optional)" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition text-sm bg-gray-50">
+        </div>
+        <div>
+          <label for="vf-message" class="sr-only">Message</label>
+          <textarea id="vf-message" rows="3" placeholder="Special message or delivery note (optional)" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition text-sm resize-none bg-gray-50"></textarea>
+        </div>
+        <button id="voucher-submit" type="submit" class="w-full px-6 py-3 rounded-xl text-sm uppercase tracking-wider font-semibold transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-lg hover:-translate-y-0.5 flex justify-center items-center gap-2">
+          Request Voucher
+        </button>
+      </form>
+      <div id="voucher-success" class="hidden mt-4 text-center p-4 bg-green-50 rounded-xl border border-green-200">
+        <p class="text-sm text-green-700 font-medium flex items-center justify-center gap-2">
+          <i data-lucide="check-circle" style="width:18px;height:18px;"></i> Voucher request received. We will confirm payment and delivery shortly.
+        </p>
+      </div>
+      <div id="voucher-error" class="hidden mt-4 text-center p-4 bg-red-50 rounded-xl border border-red-200">
+        <p class="text-sm text-red-700 font-medium">Sorry, we could not send the voucher request. Please try WhatsApp or call us directly.</p>
+      </div>
+    </div>
+  </div>
   
   <script>
     // Initialize icons when the CDN is available.
@@ -493,6 +665,39 @@
       }
     }
     refreshIcons();
+    function resolveApiBase() {
+      const defaultApiBase = window.location.protocol === 'file:' ? 'http://localhost:3000' : window.location.origin;
+      try {
+        return (window.BONAE_API_BASE || window.localStorage.getItem('BONAE_API_BASE') || defaultApiBase).replace(/\/$/, '');
+      } catch {
+        return (window.BONAE_API_BASE || defaultApiBase).replace(/\/$/, '');
+      }
+    }
+
+    const BONAE_API_BASE = resolveApiBase();
+
+    async function postToBonae(path, payload) {
+      const response = await fetch(`${BONAE_API_BASE}${path}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let result = null;
+      try {
+        result = await response.json();
+      } catch {
+        result = null;
+      }
+
+      if (!response.ok) {
+        throw new Error(result?.error || 'Request failed');
+      }
+
+      return result;
+    }
 
     // Mobile Menu Toggle Logic
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -543,22 +748,111 @@
         }
     }, 6000);
 
-    // Contact Form Submission (Mock with UI Feedback)
-    document.getElementById('contact-form').addEventListener('submit', (e) => {
+    // Contact Form Submission
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       
       // Loading State
       const btn = e.target.querySelector('button[type="submit"]');
+      const errorMsg = document.getElementById('form-error');
+      errorMsg.classList.add('hidden');
+      btn.disabled = true;
       btn.innerHTML = '<i data-lucide="loader-2" class="animate-spin" style="width:18px;height:18px;"></i> Sending...';
       refreshIcons();
 
-      // Simulate network request
-      setTimeout(() => {
+      try {
+        await postToBonae('/api/public/contact', {
+          name: document.getElementById('cf-name').value,
+          phone: document.getElementById('cf-phone').value,
+          message: document.getElementById('cf-msg').value,
+          source: 'bonae-beauty-therapy-website',
+          sourceUrl: window.location.href,
+        });
+
           document.getElementById('contact-form').classList.add('hidden');
           const successMsg = document.getElementById('form-success');
           successMsg.classList.remove('hidden');
           successMsg.classList.add('block', 'testimonial-anim'); // Reuse fade anim
-      }, 1200);
+          refreshIcons();
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = '<span id="btn-text">Send Message</span>';
+        errorMsg.classList.remove('hidden');
+      }
+    });
+
+    // Voucher Request Flow
+    const voucherModal = document.getElementById('voucher-modal');
+    const voucherForm = document.getElementById('voucher-form');
+    const voucherClose = document.getElementById('voucher-close');
+    const voucherError = document.getElementById('voucher-error');
+    const voucherSuccess = document.getElementById('voucher-success');
+    const voucherSubmit = document.getElementById('voucher-submit');
+
+    function openVoucherModal(button) {
+      const label = button.dataset.voucherLabel;
+      const title = button.dataset.voucherTitle;
+      document.getElementById('vf-amount').value = button.dataset.voucherAmount;
+      document.getElementById('vf-title').value = title;
+      document.getElementById('voucher-modal-title').textContent = `${label} ${title}`;
+      document.getElementById('voucher-modal-copy').textContent = `Send your details to request a ${label} ${title}. Bonae Beauty Spa will confirm payment and delivery.`;
+      voucherError.classList.add('hidden');
+      voucherSuccess.classList.add('hidden');
+      voucherForm.classList.remove('hidden');
+      voucherModal.classList.remove('hidden');
+      voucherModal.classList.add('flex');
+      document.getElementById('vf-name').focus();
+      refreshIcons();
+    }
+
+    function closeVoucherModal() {
+      voucherModal.classList.add('hidden');
+      voucherModal.classList.remove('flex');
+    }
+
+    document.querySelectorAll('.voucher-buy').forEach(button => {
+      button.addEventListener('click', () => openVoucherModal(button));
+    });
+
+    voucherClose.addEventListener('click', closeVoucherModal);
+    voucherModal.addEventListener('click', (event) => {
+      if (event.target === voucherModal) closeVoucherModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !voucherModal.classList.contains('hidden')) closeVoucherModal();
+    });
+
+    voucherForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      voucherError.classList.add('hidden');
+      voucherSubmit.disabled = true;
+      voucherSubmit.innerHTML = '<i data-lucide="loader-2" class="animate-spin" style="width:18px;height:18px;"></i> Sending...';
+      refreshIcons();
+
+      try {
+        const amountCents = Number(document.getElementById('vf-amount').value);
+        const voucherTitle = document.getElementById('vf-title').value;
+        await postToBonae('/api/public/voucher-request', {
+          purchaserName: document.getElementById('vf-name').value,
+          recipientName: document.getElementById('vf-recipient').value || undefined,
+          phone: document.getElementById('vf-phone').value,
+          amountCents,
+          message: document.getElementById('vf-message').value || `Voucher request: ${voucherTitle}`,
+          source: 'bonae-beauty-therapy-website',
+          sourceUrl: window.location.href,
+        });
+
+        voucherForm.reset();
+        voucherForm.classList.add('hidden');
+        voucherSuccess.classList.remove('hidden');
+        voucherSuccess.classList.add('testimonial-anim');
+        refreshIcons();
+      } catch {
+        voucherError.classList.remove('hidden');
+      } finally {
+        voucherSubmit.disabled = false;
+        voucherSubmit.innerHTML = 'Request Voucher';
+      }
     });
 
     // Intersection Observer for Fade-in Animations

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonae Beauty Spa | Birthday Special</title>
+  <meta name="description" content="Bonae Beauty Spa Birthday Special - Bring friends and enjoy a luxury spa celebration with free treatments, refreshments, and premium hospitality in Boksburg.">
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Raleway', sans-serif; background: #ffffff; max-width: 100%; overflow-x: hidden; }
+    img { display: block; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .hero-overlay { background: linear-gradient(to bottom right, rgba(13,27,94,0.8), rgba(255,255,255,0.02)); }
+    .gold-gradient { background: linear-gradient(135deg, #D4AF37, #F5D76E, #D4AF37); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .promo-card:hover { transform: translateY(-4px); }
+    .faq-summary { list-style: none; }
+    .faq-summary::-webkit-details-marker { display: none; }
+    summary { cursor: pointer; }
+    summary::marker { display: none; }
+    summary { position: relative; padding-right: 2.5rem; }
+    summary::after { content: '+'; position: absolute; right: 0; top: 0.15rem; font-size: 1.1rem; color: #0D1B5E; transition: transform 0.3s ease; }
+    details[open] summary::after { content: '–'; transform: rotate(0deg); }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #D4AF37; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .bg-brand-navy { background-color: #0D1B5E; }
+    .text-brand-navy { color: #0D1B5E; }
+    .bg-brand-gold { background-color: #D4AF37; }
+    .text-brand-gold { color: #D4AF37; }
+    .menu-fallback {
+      display: inline-block;
+      width: 24px;
+      height: 16px;
+      background:
+        linear-gradient(#0D1B5E, #0D1B5E) 0 0 / 100% 2px no-repeat,
+        linear-gradient(#0D1B5E, #0D1B5E) 0 50% / 100% 2px no-repeat,
+        linear-gradient(#0D1B5E, #0D1B5E) 0 100% / 100% 2px no-repeat;
+    }
+    svg + .menu-fallback { display: none; }
+    #mobile-menu { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-in-out; }
+    #mobile-menu.open { max-height: 400px; opacity: 1; padding-top: 1rem; padding-bottom: 1rem; border-top-width: 1px; }
+    @media (max-width: 639px) {
+      .hero-title { max-width: 22rem !important; font-size: 2.25rem !important; line-height: 1.1 !important; }
+    }
+  </style>
+</head>
+<body class="w-full overflow-x-hidden text-gray-800">
+  <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center gap-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="images/Bonae Beauty Spa Logo.jpg" onerror="this.src='https://placehold.co/150x50/0D1B5E/D4AF37?text=BONAE+LOGO'" alt="Bonae Beauty Spa Logo" class="h-10 sm:h-12 w-auto" loading="lazy">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#about" class="nav-link relative text-sm uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors font-semibold">About</a>
+        <a href="index.html#services" class="nav-link relative text-sm uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors font-semibold">Services</a>
+        <a href="index.html#gallery" class="nav-link relative text-sm uppercase tracking-wider text-brand-navy hover:text-brand-gold transition-colors font-semibold">Gallery</a>
+        <a href="index.html#contact" class="inline-block px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 bg-brand-navy text-white hover:bg-brand-gold hover:shadow-lg hover:-translate-y-1">Book Now</a>
+      </div>
+      <button id="mobile-menu-btn" class="ml-auto md:hidden p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Open menu">
+        <i data-lucide="menu" style="width:24px;height:24px;color:#0D1B5E;"></i>
+        <span class="menu-fallback" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden bg-white px-6 space-y-4 shadow-inner">
+      <a href="index.html#about" class="block text-sm uppercase tracking-wider text-[#0D1B5E] hover:text-[#D4AF37] transition">About</a>
+      <a href="index.html#services" class="block text-sm uppercase tracking-wider text-[#0D1B5E] hover:text-[#D4AF37] transition">Services</a>
+      <a href="index.html#gallery" class="block text-sm uppercase tracking-wider text-[#0D1B5E] hover:text-[#D4AF37] transition">Gallery</a>
+      <a href="index.html#contact" class="block text-sm uppercase tracking-wider text-[#D4AF37] font-semibold hover:text-[#0D1B5E] transition">Book Now</a>
+    </div>
+  </nav>
+
+  <header class="relative w-full pt-24 pb-16 bg-[#F7F4EE] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center">
+        <div class="fade-in">
+          <p class="text-sm uppercase tracking-[0.3em] mb-4 text-brand-gold font-bold">Birthday Special</p>
+          <h1 class="hero-title font-display text-4xl sm:text-5xl md:text-6xl mb-6 text-brand-navy">Celebrate your day with friends, luxury, and a complimentary spa treat.</h1>
+          <p class="text-gray-600 text-base sm:text-lg max-w-2xl leading-relaxed mb-8">Enjoy an elevated birthday celebration at Bonae Beauty Spa and delight in the warmth of premium hospitality, group relaxation, and carefully curated treatments.</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+              <p class="text-xs uppercase tracking-[0.3em] mb-2 text-brand-gold font-semibold">Offer</p>
+              <p class="text-3xl font-display font-bold text-brand-navy">R450</p>
+              <p class="mt-2 text-sm text-gray-500">Per person when 2 or more friends join.</p>
+            </div>
+            <div class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+              <p class="text-xs uppercase tracking-[0.3em] mb-2 text-brand-gold font-semibold">Tagline</p>
+              <p class="text-lg font-semibold text-brand-navy">Celebrate your day. Relax. Rejuvenate. Create beautiful memories.</p>
+            </div>
+          </div>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa,%20I%20would%20like%20to%20book%20the%20Birthday%20Special%20experience." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-brand-navy text-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-semibold transition hover:bg-brand-gold hover:text-brand-navy">Book via WhatsApp</a>
+            <a href="index.html" class="inline-flex items-center justify-center rounded-full border border-brand-navy text-brand-navy bg-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-semibold transition hover:bg-brand-navy hover:text-white">Back to Home</a>
+          </div>
+        </div>
+        <div class="relative fade-in rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 bg-white">
+          <img src="public/images/Bonae Beauty Ad3.png" onerror="this.src='https://placehold.co/840x840/D4AF37/0D1B5E?text=Birthday+Special'" alt="Birthday Special at Bonae Beauty Spa" class="w-full h-full object-cover min-h-[360px]" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="py-20 md:py-28 px-6 bg-white">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-bold">Experience Highlights</p>
+        <h2 class="font-display text-3xl md:text-4xl mb-6 text-brand-navy">A thoughtfully designed birthday celebration for groups.</h2>
+        <p class="max-w-2xl mx-auto text-gray-600 mb-12">Each experience has been composed to feel intimate, joyful, and effortlessly luxurious—perfect for birthdays that deserve more than ordinary.</p>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="promo-card rounded-3xl border border-gray-100 bg-[#F9F7F2] p-8 shadow-sm transition-transform duration-300 hover:-translate-y-1">
+            <p class="text-sm uppercase tracking-[0.2em] mb-4 text-brand-gold font-semibold">Group Luxury</p>
+            <h3 class="text-xl font-semibold mb-3 text-brand-navy">Free Treatment with Friends</h3>
+            <p class="text-sm text-gray-600">Bring two or more friends and receive one premium treatment for free on the day.</p>
+          </div>
+          <div class="promo-card rounded-3xl border border-gray-100 bg-[#F9F7F2] p-8 shadow-sm transition-transform duration-300 hover:-translate-y-1">
+            <p class="text-sm uppercase tracking-[0.2em] mb-4 text-brand-gold font-semibold">Signature Treatments</p>
+            <h3 class="text-xl font-semibold mb-3 text-brand-navy">Massage, Dermaplaning & Foot Ionization</h3>
+            <p class="text-sm text-gray-600">Choose from deeply restorative treatments that leave your skin soft, calm, and radiant.</p>
+          </div>
+          <div class="promo-card rounded-3xl border border-gray-100 bg-[#F9F7F2] p-8 shadow-sm transition-transform duration-300 hover:-translate-y-1">
+            <p class="text-sm uppercase tracking-[0.2em] mb-4 text-brand-gold font-semibold">Celebration Menu</p>
+            <h3 class="text-xl font-semibold mb-3 text-brand-navy">Welcome Drinks & Light Lunch</h3>
+            <p class="text-sm text-gray-600">Enjoy curated refreshments, snacks, and a relaxed luxury lounge experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-6 bg-[#F7F4EE]">
+      <div class="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1fr_0.8fr] items-start">
+        <div class="fade-in">
+          <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-bold">What’s included</p>
+          <h2 class="font-display text-3xl md:text-4xl mb-6 text-brand-navy">Everything is designed so you can relax from the first moment.</h2>
+          <ul class="space-y-4 text-gray-600">
+            <li class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+              <p class="text-lg font-semibold text-brand-navy mb-2">Premium welcome experience</p>
+              <p class="text-sm">Arrive to welcome drinks and a warm, private atmosphere to start the celebration.</p>
+            </li>
+            <li class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+              <p class="text-lg font-semibold text-brand-navy mb-2">Curated treatments</p>
+              <p class="text-sm">Massage, dermaplaning, and foot ionization massage are available for every guest.</p>
+            </li>
+            <li class="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+              <p class="text-lg font-semibold text-brand-navy mb-2">Luxury celebration details</p>
+              <p class="text-sm">Light lunch, snacks, and premium hospitality make the day effortless and unforgettable.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="fade-in rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 bg-white">
+          <img src="public/images/Bonae Beauty Ad3.png" onerror="this.src='https://placehold.co/640x800/D4AF37/0D1B5E?text=Birthday+Special'" alt="Birthday celebration experience" class="w-full h-full object-cover min-h-[420px]" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-6 bg-white">
+      <div class="max-w-7xl mx-auto text-center">
+        <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-bold">Frequently Asked Questions</p>
+        <h2 class="font-display text-3xl md:text-4xl mb-10 text-brand-navy">Everything you need to know before booking.</h2>
+        <div class="space-y-4 text-left">
+          <details class="rounded-3xl border border-gray-100 bg-[#F9F7F2] p-6 shadow-sm">
+            <summary class="text-lg font-semibold text-brand-navy">How many friends do I need to join?</summary>
+            <p class="mt-4 text-gray-600">The birthday special is perfect for groups of three or more, with every guest receiving a premium spa experience and one free treatment when two or more friends join.</p>
+          </details>
+          <details class="rounded-3xl border border-gray-100 bg-[#F9F7F2] p-6 shadow-sm">
+            <summary class="text-lg font-semibold text-brand-navy">Can we choose different treatments?</summary>
+            <p class="mt-4 text-gray-600">Yes. The celebration includes massage, dermaplaning, and foot ionization massage options so your group can customise the experience together.</p>
+          </details>
+          <details class="rounded-3xl border border-gray-100 bg-[#F9F7F2] p-6 shadow-sm">
+            <summary class="text-lg font-semibold text-brand-navy">What is included in the price?</summary>
+            <p class="mt-4 text-gray-600">R450 per person includes the spa package, welcome drinks, snacks, and a light lunch in our luxury spa environment.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-6 bg-[#F7F4EE]">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-bold text-center">What guests are saying</p>
+        <h2 class="font-display text-3xl md:text-4xl mb-12 text-center text-brand-navy">Luxury birthday moments that guests love.</h2>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm fade-in">
+            <p class="text-gray-600 mb-6">“Our group felt completely spoiled. The birthday package was elegant, relaxed and every detail was premium.”</p>
+            <p class="font-semibold text-brand-navy">Anele M.</p>
+            <p class="text-sm text-gray-500">Boksburg</p>
+          </div>
+          <div class="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm fade-in">
+            <p class="text-gray-600 mb-6">“The free treatment offer made our celebration feel extra special, and the refreshments were such a beautiful touch.”</p>
+            <p class="font-semibold text-brand-navy">Thandi C.</p>
+            <p class="text-sm text-gray-500">Germiston</p>
+          </div>
+          <div class="rounded-3xl border border-gray-100 bg-white p-8 shadow-sm fade-in">
+            <p class="text-gray-600 mb-6">“Bonae delivered a luxurious birthday experience without feeling overdone. Highly recommended for a group celebration.”</p>
+            <p class="font-semibold text-brand-navy">Lerato P.</p>
+            <p class="text-sm text-gray-500">Brakpan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-28 px-6 bg-white">
+      <div class="max-w-7xl mx-auto grid gap-10 lg:grid-cols-[0.9fr_0.7fr] items-center">
+        <div class="fade-in">
+          <p class="text-sm uppercase tracking-[0.2em] mb-4 text-brand-gold font-bold">Ready to celebrate?</p>
+          <h2 class="font-display text-4xl mb-5 text-brand-navy">Reserve your birthday group experience today.</h2>
+          <p class="text-gray-600 mb-8">Our team is ready to craft a seamless luxury celebration with premium hospitality, treatments, and an effortless booking experience.</p>
+          <div id="motion-book-cta">
+            <a href="https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa,%20I%20would%20like%20to%20book%20the%20Birthday%20Special%20experience." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-brand-navy text-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-semibold transition hover:bg-brand-gold hover:text-brand-navy">Book via WhatsApp</a>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-gray-100 bg-[#F9F7F2] p-8 shadow-sm fade-in">
+          <p class="text-sm uppercase tracking-[0.2em] mb-3 text-brand-gold font-semibold">Contact & location</p>
+          <div class="space-y-4 text-gray-600">
+            <div>
+              <p class="text-sm font-semibold text-brand-navy">Phone</p>
+              <p>064 836 9350</p>
+              <p>072 719 1122</p>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-brand-navy">Address</p>
+              <p>9 Robben Road</p>
+              <p>Groeneweide / Klippoortje</p>
+              <p>Boksburg, 1459</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+  <script type="module">
+    import React from 'https://esm.sh/react@18.3.1';
+    import ReactDOM from 'https://esm.sh/react-dom@18.3.1';
+    import { motion } from 'https://esm.sh/framer-motion@11.6.0';
+
+    const ctaRoot = document.getElementById('motion-book-cta');
+    if (ctaRoot) {
+      ReactDOM.createRoot(ctaRoot).render(
+        React.createElement(motion.div, { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.85, ease: 'easeOut' } },
+          React.createElement('a', {
+            href: 'https://wa.me/27648369350?text=Hi%20Bonae%20Beauty%20Spa,%20I%20would%20like%20to%20book%20the%20Birthday%20Special%20experience.',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: 'inline-flex items-center justify-center rounded-full bg-brand-navy text-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-semibold transition hover:bg-brand-gold hover:text-brand-navy'
+          }, 'Book via WhatsApp')
+        )
+      );
+    }
+  </script>
+</body>
+</html>
